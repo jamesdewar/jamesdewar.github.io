@@ -1,0 +1,74 @@
+// =============================================================================
+// SCSS/SITE/STACKS/ETHOS/_IMAGES.SCSS
+// -----------------------------------------------------------------------------
+// Classes for image styling.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Base Styles
+//   02. Rounded
+//   03. Circular
+//   04. Thumbnail
+// =============================================================================
+
+// Base Styles
+// =============================================================================
+
+.x-img-none,
+.x-img-rounded,
+.x-img-circle {
+  @include transition(#{opacity 0.3s ease});
+}
+
+a.x-img-none:hover,
+a.x-img-rounded:hover,
+a.x-img-circle:hover {
+  @include opacity(0.5);
+}
+
+
+// Rounded
+// =============================================================================
+
+.x-img-rounded {
+  border-radius: 6px;
+
+  img {
+    border-radius: 6px;
+  }
+}
+
+
+
+// Circular
+// =============================================================================
+
+.x-img-circle {
+  border-radius: 100em;
+
+  img {
+    border-radius: 100em;
+  }
+}
+
+
+
+// Thumbnail
+// =============================================================================
+
+.x-img-thumbnail {
+  @include img_thumbnail();
+
+  > img {
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+a.x-img-thumbnail:hover {
+  border-color: $accentColor;
+}

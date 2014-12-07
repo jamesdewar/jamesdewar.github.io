@@ -1,0 +1,22 @@
+/*
+
+Theme Name: X
+Theme URI: http://theme.co/x/
+Author: Themeco
+Author URI: http://theme.co/
+Description: An immensely powerful and endlessly customizable WordPress theme.
+Version: 2.2.0
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: __x__
+
+*/
+
+.x-topbar{
+background-color:#f8ffff;
+padding-right:10px;
+}
+
+.masthead-inline{
+border: 4px solid #000000;
+}

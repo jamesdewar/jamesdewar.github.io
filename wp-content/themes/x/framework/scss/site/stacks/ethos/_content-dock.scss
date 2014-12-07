@@ -1,0 +1,67 @@
+// =============================================================================
+// SCSS/SITE/STACKS/ETHOS/_CONTENT-DOCK.SCSS
+// -----------------------------------------------------------------------------
+// Contains styles for the Content Dock.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Base Styles
+// =============================================================================
+
+// Base Styles
+// =============================================================================
+
+.x-content-dock {
+  position: fixed;
+  bottom: 0;
+  border: 1px solid $shortcodeBorderColor;
+  border-bottom: 0;
+  padding: 30px;
+  background-color: $baseModBackground;
+  z-index: $zindexNavbar + 3;
+  @include box-sizing(border-box);
+  @include box-shadow(#{0 0.15em 0.35em 0 rgba(0, 0, 0, 0.135)});
+  @include transition(#{all 0.5s ease});
+  @include translate3d(0, 0, 0);
+
+  @include break(middle-bear) {
+    display: none;
+  }
+}
+
+.x-content-dock .widget {
+  color: $textColor;
+  text-shadow: none;
+
+  &:before {
+    display: none;
+  }
+}
+
+.x-content-dock .h-widget {
+  font-size: 164%;
+  color: $headingsColor;
+  margin: 0 0 0.5em;
+}
+
+.x-close-content-dock {
+  position: absolute;
+  top: 11px;
+  right: 10px;
+  font-size: 12px;
+  line-height: 12px;
+  text-decoration: none;
+
+  span {
+    color: $shortcodeBorderColor;
+    @include transition(#{color 0.3s ease});
+  }
+
+  &:hover {
+    span {
+      color: $accentColor;
+    }
+  }
+}

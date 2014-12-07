@@ -1,0 +1,160 @@
+// =============================================================================
+// SCSS/SITE/INC/MIXINS/_BACKGROUNDS.SCSS
+// -----------------------------------------------------------------------------
+// Mixins for styling background images, gradients, et cetera.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Background Clipping
+//   02. Background Sizing
+//   03. Alpha Transparency
+//   04. Gradients
+//       a. Horizontal
+//       b. Vertical
+//       c. Vertical (3 Colors)
+//       d. Directional
+//       e. Radial
+//       f. Striped
+//   05. Reset IE Filters
+// =============================================================================
+
+// Background Clipping
+// =============================================================================
+
+@mixin background-clip($clip) {
+  -webkit-background-clip: $clip;
+          background-clip: $clip;
+}
+
+
+
+// Background Sizing
+// =============================================================================
+
+@mixin background-size($size){
+  -webkit-background-size: $size;
+          background-size: $size;
+}
+
+
+
+// Alpha Transparency
+// =============================================================================
+
+//
+// Add an alpha transparency value to any 'background-color' or 'border-color'.
+//
+
+@mixin translucent-background($color: $white, $alpha: 1) {
+  background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+}
+
+@mixin translucent-border($color: $white, $alpha: 1) {
+  border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+  @include background-clip(padding-box);
+}
+
+
+
+// Gradients
+// =============================================================================
+
+//
+// Horizontal.
+//
+
+@mixin gradient-horizontal($startColor: #555555, $endColor: #333333) {
+  background-color: $endColor;
+  background-image: -moz-linear-gradient(left, $startColor, $endColor);
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor));
+  background-image: -webkit-linear-gradient(left, $startColor, $endColor);
+  background-image: -o-linear-gradient(left, $startColor, $endColor);
+  background-image: linear-gradient(left, $startColor, $endColor);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=1);
+}
+
+
+//
+// Vertical.
+//
+
+@mixin gradient-vertical($startColor: #555555, $endColor: #333333) {
+  background-color: mix($startColor, $endColor, 60%);
+  background-image: -moz-linear-gradient(top, $startColor, $endColor);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor));
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor);
+  background-image: -o-linear-gradient(top, $startColor, $endColor);
+  background-image: linear-gradient(top, $startColor, $endColor);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0);
+}
+
+
+//
+// Vertical (3 colors).
+//
+
+@mixin gradient-vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
+  background-color: mix($midColor, $endColor, 80%);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
+  background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
+  background-image: -moz-linear-gradient(top, $startColor, $midColor $colorStop, $endColor);
+  background-image: -o-linear-gradient($startColor, $midColor $colorStop, $endColor);
+  background-image: linear-gradient($startColor, $midColor $colorStop, $endColor);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0);
+}
+
+
+//
+// Directional.
+//
+
+@mixin gradient-directional($startColor: #555555, $endColor: #333333, $deg: 45deg) {
+  background-color: $endColor;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient($deg, $startColor, $endColor);
+  background-image: -webkit-linear-gradient($deg, $startColor, $endColor);
+  background-image: -o-linear-gradient($deg, $startColor, $endColor);
+  background-image: linear-gradient($deg, $startColor, $endColor);
+}
+
+
+//
+// Radial.
+//
+
+@mixin gradient-radial($innerColor: #555555, $outerColor: #333333) {
+  background-color: $innerColor;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($innerColor), to($outerColor));
+  background-image: -webkit-radial-gradient(circle, $innerColor, $outerColor);
+  background-image: -moz-radial-gradient(circle, $innerColor, $outerColor);
+  background-image: -o-radial-gradient(circle, $innerColor, $outerColor);
+  background-repeat: no-repeat;
+}
+
+
+//
+// Striped.
+//
+
+@mixin gradient-striped($color, $angle: -45deg) {
+  background-color: $color;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient($angle, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient($angle, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient($angle, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient($angle, rgba(255, 255, 255, 0.15) 25%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0));
+}
+
+
+
+// Reset IE Filters
+// =============================================================================
+
+@mixin reset-filter() {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}

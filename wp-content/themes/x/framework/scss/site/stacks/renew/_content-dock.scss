@@ -1,0 +1,56 @@
+// =============================================================================
+// SCSS/SITE/STACKS/RENEW/_CONTENT-DOCK.SCSS
+// -----------------------------------------------------------------------------
+// Contains styles for the Content Dock.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Base Styles
+// =============================================================================
+
+// Base Styles
+// =============================================================================
+
+.x-content-dock {
+  position: fixed;
+  bottom: 0;
+  border: 2px solid $shortcodeBorderColor;
+  border-bottom: 0;
+  padding: 30px;
+  background-color: $widgetbarBackground;
+  z-index: $zindexNavbar + 3;
+  @include box-sizing(border-box);
+  @include box-shadow(#{none});
+  @include transition(#{all 0.5s ease});
+  @include translate3d(0, 0, 0);
+
+  @include break(middle-bear) {
+    display: none;
+  }
+}
+
+.x-content-dock .h-widget {
+  margin: 0 0 0.65em;
+}
+
+.x-close-content-dock {
+  position: absolute;
+  top: 11px;
+  right: 10px;
+  font-size: 12px;
+  line-height: 12px;
+  text-decoration: none;
+
+  span {
+    color: $shortcodeBorderColor;
+    @include transition(#{color 0.3s ease});
+  }
+
+  &:hover {
+    span {
+      color: $accentColor;
+    }
+  }
+}

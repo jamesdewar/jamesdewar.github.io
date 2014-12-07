@@ -1,0 +1,43 @@
+// =============================================================================
+// SCSS/SITE/STACKS/ETHOS/_FONTS.SCSS
+// -----------------------------------------------------------------------------
+// Site specific fonts for typography and/or icons. Icon fonts can be
+// customized and downloaded here: http://icomoon.io/#toHome
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Font Awesome
+//   02. Foundation Social
+// =============================================================================
+
+// Font Awesome
+// =============================================================================
+
+@font-face {
+  font-family: 'fontawesome';
+  src: url('../../../fonts/font_awesome/font-awesome.eot?v=4.0.3');
+  src: url('../../../fonts/font_awesome/font-awesome.eot?#iefix&v=4.0.3') format("embedded-opentype"),
+       url('../../../fonts/font_awesome/font-awesome.woff?v=4.0.3') format("woff"),
+       url('../../../fonts/font_awesome/font-awesome.ttf?v=4.0.3') format("truetype"),
+       url('../../../fonts/font_awesome/font-awesome.svg?#fontawesome&v=4.0.3') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+// Foundation Social
+// =============================================================================
+
+@font-face {
+  font-family: 'foundationsocial';
+  src: url('../../../fonts/foundation_social/foundation-social.eot?v=1.0');
+  src: url('../../../fonts/foundation_social/foundation-social.eot?#iefix&v=1.0') format("embedded-opentype"),
+       url('../../../fonts/foundation_social/foundation-social.woff?v=1.0') format("woff"),
+       url('../../../fonts/foundation_social/foundation-social.ttf?v=1.0') format("truetype"),
+       url('../../../fonts/foundation_social/foundation-social.svg?#foundationsocial&v=1.0') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
